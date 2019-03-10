@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import App from './components/App'
+
 
 const title = 'SubhanAllah';
 
 ReactDOM.render(
-  <div>{title}</div>,
+  <App />,
   document.getElementById('app')
 );
 module.hot.accept();
