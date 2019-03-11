@@ -1,30 +1,31 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import LeftSide from './LeftSide';
+import RightSide from './RightSide';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-
+import './App.scss';
 
 function App() {
-  return (
+  return (   
+    
     <Router>
-      <div>
-        <Container>
+      <div className="app">
+        <Container>            
             <Row>
-                <Col>1 of 2</Col>
-                <Col>2 of 2</Col>
-            </Row>
-            <Row>
-                <Col>1 of 3</Col>
-                <Col>2 of 3</Col>
-                <Col>3 of 3</Col>
+                <Col md={3} className="left"><LeftSide></LeftSide></Col>
+                <Col md="auto" className="middle">
+                  <Route exact path="/" component={Home} />
+                  <Route path="/about" component={About} />
+                  <Route path="/topics" component={Topics} />
+                </Col>
+                <Col md={3} className="right"><RightSide></RightSide></Col>
             </Row>
         </Container>
-        <Header />
+        {/* <Header /> */}
 
-        <Route exact path="/" component={Home} />
-        <Route path="/about" component={About} />
-        <Route path="/topics" component={Topics} />
+        
       </div>
     </Router>
   );
@@ -39,10 +40,13 @@ function About() {
 }
 
 function Topic({ match }) {
+  console.log({match});
   return <h3>Requested Param: {match.params.id}</h3>;
 }
 
 function Topics({ match }) {
+  console.log({match});
+  
   return (
     <div>
       <h2>Topics</h2>
