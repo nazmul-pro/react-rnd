@@ -6,6 +6,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import './App.scss';
+import Middle from "./Middle";
 
 function App() {
   return (   
@@ -32,7 +33,7 @@ function App() {
 }
 
 function Home() {
-  return <h2>Home</h2>;
+  return <Middle></Middle>;
 }
 
 function About() {
@@ -67,22 +68,6 @@ function Topics({ match }) {
         render={() => <h3>Please select a topic.</h3>}
       />
     </div>
-  );
-}
-
-function Header() {
-  return (
-    <ul>
-      <li>
-        <Link to="/">Home</Link>
-      </li>
-      <li>
-        <Link to="/about">About</Link>
-      </li>
-      <li>
-        <Link to="/topics">Topics</Link>
-      </li>
-    </ul>
   );
 }
 
